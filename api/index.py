@@ -384,6 +384,15 @@ class SLRParser:
 
 @app.route('/parse', methods=['POST', 'OPTIONS'])
 def parse():
+    if request.method == 'OPTIONS':
+        response = app.make_default_options_response()
+        response.headers.add('Access-Control-Allow-Methods', 'POST')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        return response
+
+    if not request.is_json:
+        return jsonify({"error": "Content-Type must be application/json"}), 415
+
     try:
         data = request.get_json()
 
