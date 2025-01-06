@@ -384,13 +384,6 @@ class SLRParser:
 
 @app.route('/parse', methods=['POST', 'OPTIONS'])
 def parse():
-    if request.method == 'OPTIONS':
-        response = jsonify({'status': 'OK'})
-        response.headers.add('Access-Control-Allow-Origin',
-                             'http://localhost:3000')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-        return response
-
     try:
         data = request.get_json()
 
