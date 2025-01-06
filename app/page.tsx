@@ -27,7 +27,7 @@ F -> id
 		try {
 			setLoading(true);
 			setError(null);
-			const response = await fetch('http://localhost:5328/parse', {
+			const response = await fetch('https://slr-visualizer.vercel.app/parse', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
