@@ -429,5 +429,13 @@ def parse():
         }), 500
 
 
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({
+        'success': True,
+        'message': 'SLR Parser API'
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)
