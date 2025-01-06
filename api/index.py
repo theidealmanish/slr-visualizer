@@ -383,7 +383,7 @@ class SLRParser:
         return parsing_data
 
 
-@app.route('/parse', methods=['POST', 'OPTIONS'])
+@app.route('/api/parse', methods=['POST', 'OPTIONS'])
 def parse():
     if request.method == 'OPTIONS':
         response = app.make_default_options_response()
@@ -429,7 +429,7 @@ def parse():
         }), 500
 
 
-@app.route('/', methods=['GET'])
+@app.route('/api/parse', methods=['GET'])
 def index():
     return jsonify({
         'success': True,

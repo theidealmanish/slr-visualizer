@@ -27,14 +27,17 @@ F -> id
 		try {
 			setLoading(true);
 			setError(null);
-			const response = await fetch('https://slr-visualizer.vercel.app/parse', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					grammar: grammar.trim(),
-					tokens: input.trim(),
-				}),
-			});
+			const response = await fetch(
+				'https://slr-visualizer.vercel.app/api/parse',
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						grammar: grammar.trim(),
+						tokens: input.trim(),
+					}),
+				}
+			);
 			const data = await response.json();
 			if (!response.ok) throw new Error(data.error);
 			setOutput(data);
