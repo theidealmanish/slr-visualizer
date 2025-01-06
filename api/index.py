@@ -3,7 +3,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={
+     r"/*": {"origins": "https://slr-visualizer.vercel.app"}})
 
 # Grammar class
 
@@ -395,6 +396,7 @@ def parse():
 
     try:
         data = request.get_json()
+        print(data)
 
         if not data or 'grammar' not in data or 'tokens' not in data:
             return jsonify({
