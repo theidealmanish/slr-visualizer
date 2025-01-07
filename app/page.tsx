@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import ParserOutput from '@/components/parser-output/ParserOutput';
 import StepsView from '@/components/StepsView';
+import Image from 'next/image';
 
 // Dynamic import of Graphviz component with SSR disabled
 const GraphvizComponent = dynamic(
@@ -53,10 +54,21 @@ F -> id
 	return (
 		<div className='p-6 min-h-screen text-black bg-gray-100'>
 			<div className='mx-auto max-w-4xl'>
-				<h1 className='mb-6 text-3xl font-bold text-center'>
-					SLR Parser Visualization
-				</h1>
-
+				<div className='flex gap-x-4 justify-center items-center mb-6'>
+					<div>
+						<Image
+							src='/SLR-parser-removed.png'
+							alt='SLR Parser Visualization'
+							width={64}
+							height={64}
+						/>
+					</div>
+					<div>
+						<h1 className='text-3xl font-bold text-center'>
+							SLR Parser Visualization
+						</h1>
+					</div>
+				</div>
 				<div className='p-6 mb-6 bg-white rounded-lg shadow'>
 					<div className='mb-4'>
 						<label className='block mb-2 font-bold text-gray-700'>
